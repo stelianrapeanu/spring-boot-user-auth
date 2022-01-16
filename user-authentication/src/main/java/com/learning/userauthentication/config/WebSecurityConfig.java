@@ -1,4 +1,4 @@
-package com.learning.userauthentication;
+package com.learning.userauthentication.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

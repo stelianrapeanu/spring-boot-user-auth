@@ -1,7 +1,7 @@
-package com.learning.userauthentication.data;
+package com.learning.userauthentication.auth;
 
-import com.learning.userauthentication.models.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface UserRepository extends JpaRepository<User, Long> {
+    User findByUserName(String userName);
 }

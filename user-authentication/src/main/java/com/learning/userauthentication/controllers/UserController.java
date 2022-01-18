@@ -1,5 +1,5 @@
 package com.learning.userauthentication.controllers;
-import com.learning.userauthentication.service.UserService;
+import com.learning.userauthentication.auth.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;

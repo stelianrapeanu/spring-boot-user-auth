@@ -1,4 +1,4 @@
-package com.learning.userauthentication.models;
+package com.learning.userauthentication.auth;
 
 import javax.annotation.processing.Generated;
 import javax.persistence.*;
@@ -15,7 +15,7 @@ public class User {
     private String firstName;
     @Column(name = "LAST_NAME")
     private String lastName;
-    @Column(name = "USER_NAME")
+    @Column(name = "USER_NAME", nullable = false, unique = true)
     private String userName;
     @Column(name = "PASSWORD")
     private String password;

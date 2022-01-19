@@ -10,10 +10,12 @@ import java.util.List;
 @Service
 public class UserService implements UserDetailsService {
 
-    public final UserRepository userRepository;
+    private final UserRepository userRepository;
+    private final AuthGroupRepository authGroupRepository;
 
-    public UserService(UserRepository userRepository) {
+    public UserService(UserRepository userRepository, AuthGroupRepository authGroupRepository) {
         this.userRepository = userRepository;
+        this.authGroupRepository = authGroupRepository;
     }
 
     @Override
@@ -22,7 +24,8 @@ public class UserService implements UserDetailsService {
         if (user == null) {
             throw new UsernameNotFoundException("cannot find username: " + username);
         }
-        return new UserPrincipal(user);
+        final List<AuthGroup> authGroups = authGroupRepository.findByUsername(username);
+        return new UserPrincipal(user, authGroups);
     }
 
     public List<User> getAllUsers() {
